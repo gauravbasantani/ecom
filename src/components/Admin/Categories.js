@@ -48,7 +48,7 @@ const Categories = () => {
               <>
               <tr>
               <td>
-                <NavLink  to={"/admin/category/" + d._id } className='btn-primary' style={{ margin : "2px", backgroundColor:'primary'}}>Edit</NavLink>
+                <NavLink  to={"/admin/category/" + d._id } className='btn btn-primary' style={{ margin : "2px", backgroundColor:'primary'}}>Edit</NavLink>
                 <NavLink to='' onClick={(e)=>deleteCategory(e,d._id)} className='btn-danger' style={{ margin : "2px", backgroundColor:'danger'}}>Delete</NavLink>              </td>
               <td>
                 {d.srno}
