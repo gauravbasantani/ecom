@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Header from "./components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Admin from "./components/Admin/Admin";
+import Categories from "./components/Admin/Categories";
+import Login from "./components/Login";
+import Category from "./components/Admin/Category";
+
+// import $ from 'jquery';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <BrowserRouter>
+    <>
+   
+    <Header/>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="about" element={<About />}/>
+      <Route path="contact" element={<Contact />}/>    
+      <Route path="login" element={<Login />}/>    
+
+      <Route path="admin" element={<Admin/>}>
+      <Route path="/admin/categories" element={<Categories/>}/>
+      <Route path="/admin/category" element={<Category/>}/>
+      <Route path="/admin/category/:id" element={<Category/>}/>
+      </Route>
+    </Routes>
+    </>
+    </BrowserRouter>
   );
 }
 
