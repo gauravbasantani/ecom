@@ -21,7 +21,7 @@ const Admin = () => {
         <div className="container-fluid">
 
         <div className="row my-3 ">
-            <div className="col-lg-2 py-2" >
+            <div className="col-lg-2 py-2 mt-3" >
             <li><NavLink style={navStyle} className='nav-bar-link ' to="/admin/dashboard">Dashboard</NavLink></li>
 			<li><NavLink style={navStyle} className='nav-bar-link' to="/admin/categories">Categories</NavLink></li>
 			<li><NavLink style={navStyle} className='nav-bar-link' to="/admin/products">Products</NavLink></li>

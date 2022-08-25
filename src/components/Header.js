@@ -17,7 +17,7 @@ const Header = () => {
 		<div className="container-menu-desktop">
 			{/* <!-- Topbar --> */}
 			<div className="top-bar">
-				<div className="content-topbar flex-sb-m h-full container">
+				<div className=" flex-sb-m h-full container">
 					<div className="left-top-bar">
 						Free shipping for standard order over $100
 					</div>
@@ -41,7 +41,7 @@ const Header = () => {
 			</div>
 
 			<div className="wrap-menu-desktop">
-				<nav className="limiter-menu-desktop container">
+				<nav className="limiter-menu-desktop container navbar-light bg-light">
 					
 					{/* <!-- Logo desktop -->		 */}
 					<a href="#" className="logo">
@@ -127,6 +127,7 @@ const Header = () => {
 
 
 		{/* <!-- Menu Mobile --> */}
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<div className="menu-mobile">
 			<ul className="topbar-mobile">
 				<li>
@@ -177,6 +178,7 @@ const Header = () => {
 					<NavLink className='nav-bar-link' style={navStyle} to="/contact">Contact</NavLink>
 				</li>
 			</ul>
+		</div>
 		</div>
 
 		{/* <!-- Modal Search --> */}

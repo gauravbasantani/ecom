@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom'
 
 const Category = () => {
     let navigate = useNavigate();
@@ -9,6 +9,19 @@ const Category = () => {
         name : '',
         srno : '',
         image : '',
+        })
+        let { id } = useParams();
+        useEffect(()=>{
+            if(id !== null){
+                axios.post("http://localhost:8081/productcategory/get",{data:{id : id}}).then((res)=>{
+                    const newData = {...data}
+                    newData["id"] = res.data.data._id;
+                    newData["name"] = res.data.data.name;
+                    newData["srno"] = res.data.data.srno;
+                    setData(newData);
+
+                })
+            }
         })
     function handleChange(e){
             if(e.target.id === "image"){

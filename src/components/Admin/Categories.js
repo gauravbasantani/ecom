@@ -18,13 +18,15 @@ const Categories = () => {
     load();
   },[])
 
-  function deleteCategory(e,id){
+  function deleteCategory(e, id){
     e.preventDefault();
-    axios.post("http://localhost:8081/productcategory/get",{data:{id:id}}).then(res=>load())
+    axios.post("http://localhost:8081/productcategory/delete", {data:{id:id}}).then((res)=>{
+      load();
+    })
   }
 
   return (
-    <div className='container'>
+    <div className='container mt-5'>
        <div className='breadcrumbs'>
         <p className='bread'>
           <span> <NavLink style={navStyle}  to="/admin"> Admin </NavLink></span>/
@@ -33,7 +35,7 @@ const Categories = () => {
       </div>
       <h1>Categories</h1>
       <div className='text-right'>
-      <Link to="/admin/category" className='btn btn-primary'>Add Category</Link>
+      <Link to="/admin/category" className='btn btn-primary my-2'>Add Category</Link>
       </div>
       <table className='table table-bordered table-stripped'>
         <tr>
@@ -48,8 +50,8 @@ const Categories = () => {
               <>
               <tr>
               <td>
-                <NavLink  to={"/admin/category/" + d._id } className='btn btn-primary' style={{ margin : "2px", backgroundColor:'primary'}}>Edit</NavLink>
-                <NavLink to='' onClick={(e)=>deleteCategory(e,d._id)} className='btn-danger' style={{ margin : "2px", backgroundColor:'danger'}}>Delete</NavLink>              </td>
+                <button><NavLink  to={"/admin/category/" + d._id } className='btn btn-primary' style={{ margin : "2px", backgroundColor:'primary'}}>Edit</NavLink></button>
+                <NavLink to={"#"} onClick={(e)=>deleteCategory(e,d._id)} className='btn-danger' style={{ margin : "2px", backgroundColor:'danger'}}>Delete</NavLink>              </td>
               <td>
                 {d.srno}
               </td>
