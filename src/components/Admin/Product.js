@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom'
 
 const Product = () => {
     let navigate = useNavigate();
@@ -53,6 +53,26 @@ const Product = () => {
           setCategories(res.data.data);
         })
       }, [])
+      let {id} = useParams();
+      useEffect(()=>{
+        if(id !== null){
+            axios.post("http://localhost:8081/product/get",{data:{id:id}}).then((res)=>{
+                const newData = {...data};
+                newData['id'] = res.data.data._id;
+                newData["pcid"] = res.data.data.pcid;
+                newData["name"] = res.data.data.name;
+                newData['description'] = res.data.data.description;
+                newData["specification"] = res.data.data.specification;
+                newData["mrp"] = res.data.data.mrp;
+                newData["price"] = res.data.data.price;
+                newData["varieties"] = res.data.data.varieties;
+                newData["instock"] = res.data.data.instock;
+                newData["isactive"] = res.data.data.isactive;
+                setData(newData);
+                console.log(res.data.data);
+            })
+        }
+      })
   return (
     <div>
       <div className='container mt-5'>

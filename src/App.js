@@ -33,6 +33,7 @@ function App() {
       <Route path="/admin/category/:id" element={<Category/>}/>
       <Route path="/admin/products/" element={<Products/>}/>
       <Route path="/admin/product/" element={<Product/>}/>
+      <Route path="/admin/product/:id" element={<Product/>}/>
       </Route>
     </Routes>
     </>
